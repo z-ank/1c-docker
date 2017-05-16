@@ -23,7 +23,7 @@ RUN dpkg -i /opt/1c*.deb \
     && rm /opt/*.zip \
     && /bin/bash /etc/fonts/infinality/infctl.sh setstyle linux
 
-RUN cp -f /opt/* /opt/1C/v8.3/i386/
+RUN cp -f /opt/*.* /opt/1C/v8.3/i386/
 
 RUN export uid=1000 gid=1000 && \
     mkdir -p /home/developer && \
@@ -34,4 +34,4 @@ RUN export uid=1000 gid=1000 && \
 
 USER developer
 ENV HOME /home/developer
-CMD /opt/1C/v8.3/i386/1cv8
+CMD /opt/1C/v8.3/i386/1cv8 2> /dev/null
