@@ -12,14 +12,18 @@ RUN apt-get update \
 
 ADD ./dist/ /opt/
 ADD ./ttf/ /opt/
+ADD ./lic/ /opt/
+
 ENV LANG ru_RU.UTF-8
 
-RUN dpkg -i /opt/1c-*.deb \
+RUN dpkg -i /opt/1c*.deb \
     && unzip /opt/mscorefonts.zip -d /usr/share/fonts/TTF \
     && unzip /opt/ttf-fira-code.zip -d /usr/share/fonts/TTF \
     && rm /opt/*.deb \
     && rm /opt/*.zip \
     && /bin/bash /etc/fonts/infinality/infctl.sh setstyle linux
+
+RUN cp -f /opt/* /opt/1C/v8.3/i386/
 
 RUN export uid=1000 gid=1000 && \
     mkdir -p /home/developer && \
