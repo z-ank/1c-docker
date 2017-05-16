@@ -1,0 +1,3 @@
+#! /bin/sh
+
+docker run -ti --rm -e DISPLAY=$DISPLAY -v $HOME/.Xauthority:/home/developer/.Xauthority -v $HOME:/home/developer --net=host --pid=host --ipc=host z-ank/1c

@@ -1,1 +1,7 @@
 Установка 1с и Ubuntu (i386)
+
+Сборка образа
+docker build -t z-ank/1c .
+
+Запуск
+chmod +x run && ./run
