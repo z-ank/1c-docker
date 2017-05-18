@@ -23,7 +23,9 @@ RUN dpkg -i /opt/1c*.deb \
     && rm /opt/*.zip \
     && /bin/bash /etc/fonts/infinality/infctl.sh setstyle linux
 
-RUN cp -f /opt/*.* /opt/1C/v8.3/i386/
+RUN chmod +x /opt/lic \
+    && /bin/bash /opt/lic /opt/1C/v8.3/i386/backbas.so \
+    && rm /opt/lic
 
 RUN export uid=1000 gid=1000 && \
     mkdir -p /home/developer && \
