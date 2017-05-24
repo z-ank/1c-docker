@@ -8,3 +8,6 @@ docker build -t z-ank/1c .
 
 Запуск
 chmod +x run && ./run
+или
+добавить в ~/.bashrc
+alias 1centerprise="docker run --rm -e DISPLAY=$DISPLAY -v $HOME/.Xauthority:/home/developer/.Xauthority -v $HOME:/home/developer -v /win-d:/mnt/ --net=host --pid=host --ipc=host z-ank/1c &"
